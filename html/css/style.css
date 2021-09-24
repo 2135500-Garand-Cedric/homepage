@@ -1,0 +1,26 @@
+h1 {
+    color: red;
+    font-size: 3em;
+    text-align: center;
+}
+
+#premiereLettre, .lettre1 {
+    font-size: 2em;
+    font-style: italic;
+}
+
+p {
+    text-align: justify;
+}
+
+#premiereLettre {
+    color: purple;
+}
+
+.lettre1 {
+    color: green;
+}
+
+#consignes:hover {
+    color: gold;
+}

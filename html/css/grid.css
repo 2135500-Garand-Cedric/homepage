@@ -1,0 +1,43 @@
+#container {
+    display: grid;
+    min-width: 100%;
+    min-height: 100%;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(5,150px);
+    grid-template-areas: 
+    "nav header header header header header"
+    "nav article article article article aside"
+    "nav article article article article aside"
+    "nav article article article article aside"
+    "nav footer footer footer footer footer";
+    
+}
+
+
+
+nav {
+    grid-area: nav;
+    background-color: aqua;
+}
+
+article {
+    grid-area: article;
+    background-color: blue;
+}
+
+header {
+    grid-area: header;
+    background-color: chocolate;
+}
+
+footer {
+    grid-area: footer;
+    background-color: crimson;
+}
+
+aside {
+    grid-area: aside;
+    background-color: darkmagenta;
+}
+
+

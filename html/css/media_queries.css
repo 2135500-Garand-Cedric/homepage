@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0em;
+}
+#containerTitre {
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    min-height: 150px;
+    min-width: 100%;
+}
+
+.titre {
+    text-align: center;
+}
+
+#containerLien {
+    display: flex;
+    background-color: black;
+    min-height: 40px;
+    align-items: center;
+}
+
+a {
+    min-width: 100px;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    background-color: white;
+    color: black;
+}
+
+#containerMilieu {
+    display: flex;
+    
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: grey;
+    min-width: 30%;
+    max-width: 30%;
+    min-height: 850px;
+}
+
+.image {
+    background-color: brown;
+    max-width: 90%;
+    min-width: 90%;
+    min-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#aside {
+    min-width: 90%;
+    max-height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#paragrapheAside {
+    max-width: 90%;
+}
+
+article {
+    background-color: lightgray;
+    min-width: 70%;
+    max-width: 70%;
+    min-height: 850px;
+}
+
+.titreArticle {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paragrapheArticle {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imageArticle {
+    min-width: 95%;
+}
+
+footer {
+    display: flex;
+    min-height: 100px;
+    justify-content: center;
+}
+
+.titreFooter {
+        text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+
+    #containerTitre {
+        min-width: 100%;
+    }
+
+    #containerLien {
+        min-height: 150px;
+        min-width: 100%;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    a {
+        min-width: 100%;
+    }
+
+    #containerMilieu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        min-width: 100%;
+        max-height: 400px;
+        min-height: 400px;
+    }
+
+    article {
+        min-width: 100%;
+    }
+}
+
+@media print {
+    #containerLien {
+        display: none;
+    }
+
+    aside {
+        display: none;
+    }
+
+    #footer {
+        display: none;
+    }
+
+    #containerTitre {
+        min-width: 100;
+    }
+
+    article {
+        min-width: 100%;
+    }
+}
+
