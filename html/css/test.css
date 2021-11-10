@@ -1,5 +1,9 @@
 body {
     background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
 }
 
 @media screen and (max-width: 992px) {
@@ -12,4 +16,21 @@ body {
     body {
       background-color: olive;
     }
+}
+
+#carre {
+  background-color: black;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+#pawn {
+  color: white;
+  font-size: 10em;
+  position: relative;
 }

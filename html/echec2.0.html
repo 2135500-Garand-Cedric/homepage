@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <metacharset="utf-8">
+        <title>Jeu d'echec 2.0</title>
+        <link rel="stylesheet" href="css/echec2.0.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css">
+    </head>
+    <body>
+        <div id="leftBoard">
+            <div id="timerBlack">
+                <div id="minutesBlack">min</div>
+                <div>:</div>
+                <div id="secondsBlack">sec</div>
+            </div>
+            <div id="center">
+                <button id="button">Start</button>
+                <select id="select_value" name="select_value">
+                    <option value="thirtySec">30 sec</option>
+                    <option value="uneMin">1 min</option>
+                    <option value="uneMin_uneSec">1 | 1</option>
+                    <option value="twoMin_uneSec">2 | 1</option>
+                    <option value="threeMin">3 min</option>
+                    <option value="threeMin_twoSec">3 | 2</option>
+                    <option value="fiveMin">5 min</option>
+                    <option value="fiveMin_fiveSec">5 | 5</option>
+                    <option value="tenMin">10 min</option>
+                </select>
+            </div>
+            <div id="timerWhite">
+                <div id="minutesWhite">min</div>
+                <div>:</div>
+                <div id="secondsWhite">sec</div>
+            </div>
+        </div>
+
+
+        <div id="container_flex">
+            <div id="gameEnd">
+                <div id="top_section">
+                    <i class="fas fa-times" id="exit"></i>
+                    <div class="winner" id="whiteWins">White is the winner!</div>
+                    <div class="winner" id="blackWins">Black is the winner!</div>
+                    <div id="timeWin">by time</div>
+                    <div id="forfeitWin">by forfeit</div>
+                    <div id="checkmateWin">by checkmate</div>
+                </div>
+                <div id="profile_section">
+                    <i class="far fa-user" id="player_1"></i>
+                    <i class="far fa-user" id="player_2"></i>
+                </div>
+                <div id="name_section">
+                    <div id="namePlayer_1">player 1</div>
+                    <div id="points">
+                        <div id="pointsPlayer_1">0</div>
+                        <div id="dash">-</div>
+                        <div id="pointsPlayer_2">0</div>
+                    </div>
+                    <div id="namePlayer_2">player 2</div>
+                </div>
+                <div id="bottom_section">
+                    <div id="elo">1250</div>
+                </div>
+            </div>
+            <div id="promotion_flex">
+                <div id="promotion">
+                    <div id="choice1">
+                        <i class="fas fa-chess-bishop"></i>
+                    </div>
+                    <div id="choice2">
+                        <i class="fas fa-chess-queen"></i>
+                    </div>
+                    <div id="choice3">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <div id="choice4">
+                        <i class="fas fa-chess-rook"></i>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="container_grid">
+                <div id="a8" class="greenSquare">
+                    <div class="greyNumber">8</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighta8"></i>
+<i class="fas fa-chess-pawn black" id="blackPawna8"></i>
+<i class="fas fa-chess-queen black" id="blackQueena8"></i>
+<i class="fas fa-chess-bishop black" id="blackBishopa8"></i>
+<i class="fas fa-chess-king black" id="blackKinga8"></i>
+<i class="fas fa-chess-rook white" id="whiteRooka8"></i>
+<i class="fas fa-chess-knight white" id="whiteKnighta8"></i>
+<i class="fas fa-chess-pawn white" id="whitePawna8"></i>
+<i class="fas fa-chess-queen white" id="whiteQueena8"></i>
+<i class="fas fa-chess-bishop white" id="whiteBishopa8"></i>
+<i class="fas fa-chess-king white" id="whiteKinga8"></i>
+                </div>
+                <div id="a6" class="greenSquare">
+                    <div class="greyNumber">6</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka6"></i>
+<i class="fas fa-chess-knight black" id="blackKnighta6"></i>
+<i class="fas fa-chess-pawn black" id="blackPawna6"></i>
+<i class="fas fa-chess-queen black" id="blackQueena6"></i>
+<i class="fas fa-chess-bishop black" id="blackBishopa6"></i>
+<i class="fas fa-chess-king black" id="blackKinga6"></i>
+<i class="fas fa-chess-rook white" id="whiteRooka6"></i>
+<i class="fas fa-chess-knight white" id="whiteKnighta6"></i>
+<i class="fas fa-chess-pawn white" id="whitePawna6"></i>
+<i class="fas fa-chess-queen white" id="whiteQueena6"></i>
+<i class="fas fa-chess-bishop white" id="whiteBishopa6"></i>
+<i class="fas fa-chess-king white" id="whiteKinga6"></i>
+                    
+
+                </div>
+                <div id="a4" class="greenSquare">
+                    <div class="greyNumber">4</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka4"></i>
+<i class="fas fa-chess-knight black" id="blackKnighta4"></i>
+<i class="fas fa-chess-pawn black" id="blackPawna4"></i>
+<i class="fas fa-chess-queen black" id="blackQueena4"></i>
+<i class="fas fa-chess-bishop black" id="blackBishopa4"></i>
+<i class="fas fa-chess-king black" id="blackKinga4"></i>
+<i class="fas fa-chess-rook white" id="whiteRooka4"></i>
+<i class="fas fa-chess-knight white" id="whiteKnighta4"></i>
+<i class="fas fa-chess-pawn white" id="whitePawna4"></i>
+<i class="fas fa-chess-queen white" id="whiteQueena4"></i>
+<i class="fas fa-chess-bishop white" id="whiteBishopa4"></i>
+<i class="fas fa-chess-king white" id="whiteKinga4"></i>
+
+                </div>
+                <div id="a2" class="greenSquare">
+                    <div class="greyNumber">2</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka2"></i>
+<i class="fas fa-chess-knight black" id="blackKnighta2"></i>
+<i class="fas fa-chess-pawn black" id="blackPawna2"></i>
+<i class="fas fa-chess-queen black" id="blackQueena2"></i>
+<i class="fas fa-chess-bishop black" id="blackBishopa2"></i>
+<i class="fas fa-chess-king black" id="blackKinga2"></i>
+<i class="fas fa-chess-rook white" id="whiteRooka2"></i>
+<i class="fas fa-chess-knight white" id="whiteKnighta2"></i>
+<i class="fas fa-chess-pawn white" id="whitePawna2"></i>
+<i class="fas fa-chess-queen white" id="whiteQueena2"></i>
+<i class="fas fa-chess-bishop white" id="whiteBishopa2"></i>
+<i class="fas fa-chess-king white" id="whiteKinga2"></i>
+                </div>
+                <div id="b7" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb7"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb7"></i>
+                </div>
+                <div id="b5" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb5"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb5"></i>
+                </div>
+                <div id="b3" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb3"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb3"></i>
+                </div>
+                <div id="b1" class="greenSquare">
+                    <div class="greyLetter">b</div>
+                    <i class="fas fa-chess-rook black" id="blackRookb1"></i>
+<i class="fas fa-chess-knight black" id="blackKnightb1"></i>
+<i class="fas fa-chess-pawn black" id="blackPawnb1"></i>
+<i class="fas fa-chess-queen black" id="blackQueenb1"></i>
+<i class="fas fa-chess-bishop black" id="blackBishopb1"></i>
+<i class="fas fa-chess-king black" id="blackKingb1"></i>
+<i class="fas fa-chess-rook white" id="whiteRookb1"></i>
+<i class="fas fa-chess-knight white" id="whiteKnightb1"></i>
+<i class="fas fa-chess-pawn white" id="whitePawnb1"></i>
+<i class="fas fa-chess-queen white" id="whiteQueenb1"></i>
+<i class="fas fa-chess-bishop white" id="whiteBishopb1"></i>
+<i class="fas fa-chess-king white" id="whiteKingb1"></i>
+                </div>
+                <div id="c8" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc8"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc8"></i>
+                </div>
+                <div id="c6" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc6"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc6"></i>
+                </div>
+                <div id="c4" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc4"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc4"></i>
+                </div>
+                <div id="c2" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc2"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc2"></i>
+                </div>
+                <div id="d7" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd7"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd7"></i>                </div>
+                <div id="d5" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd5"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd5"></i>
+                </div>
+                <div id="d3" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd3"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd3"></i>
+                </div>
+                <div id="d1" class="greenSquare">
+                    <div class="greyLetter">d</div>
+                    <i class="fas fa-chess-rook black" id="blackRookd1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd1"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd1"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend1"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd1"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd1"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd1"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd1"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd1"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend1"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd1"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd1"></i>
+                </div>
+                <div id="e8" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope8"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge8"></i>                </div>
+                <div id="e6" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope6"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge6"></i>
+                </div>
+                <div id="e4" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope4"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge4"></i>
+                </div>
+                <div id="e2" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope2"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge2"></i>                </div>
+                <div id="f7" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf7"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf7"></i>                </div>
+                <div id="f5" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf5"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf5"></i>
+                </div>
+                <div id="f3" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf3"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf3"></i>
+                </div>
+                <div id="f1" class="greenSquare">
+                    <div class="greyLetter">f</div>
+                    <i class="fas fa-chess-rook black" id="blackRookf1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf1"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf1"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf1"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf1"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf1"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf1"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf1"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf1"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf1"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf1"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf1"></i>                </div>
+                <div id="g8" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg8"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg8"></i>                </div>
+                <div id="g6" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg6"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg6"></i>
+                </div>
+                <div id="g4" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg4"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg4"></i>
+                </div>
+                <div id="g2" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg2"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg2"></i>                </div>
+                <div id="h7" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph7"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh7"></i>                </div>
+                <div id="h5" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph5"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh5"></i>
+                </div>
+                <div id="h3" class="greenSquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph3"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh3"></i>
+                </div>
+                <div id="h1" class="greenSquare">
+                    <div class="greyLetter">h</div>
+                    <i class="fas fa-chess-rook black" id="blackRookh1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth1"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh1"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh1"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph1"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh1"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh1"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth1"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh1"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh1"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph1"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh1"></i>                </div>
+                <div id="a7" class="graySquare">
+                    <div class="greenNumber">7</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighta7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawna7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueena7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopa7"></i>
+                    <i class="fas fa-chess-king black" id="blackKinga7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooka7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighta7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawna7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueena7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopa7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinga7"></i>                </div>
+                <div id="a5" class="graySquare">
+                    <div class="greenNumber">5</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighta5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawna5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueena5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopa5"></i>
+                    <i class="fas fa-chess-king black" id="blackKinga5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooka5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighta5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawna5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueena5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopa5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinga5"></i>
+                </div>
+                <div id="a3" class="graySquare">
+                    <div class="greenNumber">3</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighta3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawna3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueena3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopa3"></i>
+                    <i class="fas fa-chess-king black" id="blackKinga3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooka3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighta3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawna3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueena3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopa3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinga3"></i>
+                </div>
+                <div id="a1" class="graySquare">
+                    <div class="greenLetter">a</div>
+                    <div class="greenNumber">1</div>
+                    <i class="fas fa-chess-rook black" id="blackRooka1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighta1"></i>
+<i class="fas fa-chess-pawn black" id="blackPawna1"></i>
+<i class="fas fa-chess-queen black" id="blackQueena1"></i>
+<i class="fas fa-chess-bishop black" id="blackBishopa1"></i>
+<i class="fas fa-chess-king black" id="blackKinga1"></i>
+<i class="fas fa-chess-rook white" id="whiteRooka1"></i>
+<i class="fas fa-chess-knight white" id="whiteKnighta1"></i>
+<i class="fas fa-chess-pawn white" id="whitePawna1"></i>
+<i class="fas fa-chess-queen white" id="whiteQueena1"></i>
+<i class="fas fa-chess-bishop white" id="whiteBishopa1"></i>
+<i class="fas fa-chess-king white" id="whiteKinga1"></i>
+                </div>
+                <div id="b8" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb8"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb8"></i>                </div>
+                <div id="b6" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb6"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb6"></i>
+                </div>
+                <div id="b4" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb4"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb4"></i>
+                </div>
+                <div id="b2" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookb2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightb2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnb2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenb2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopb2"></i>
+                    <i class="fas fa-chess-king black" id="blackKingb2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookb2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightb2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnb2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenb2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopb2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingb2"></i>                </div>
+                <div id="c7" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc7"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc7"></i>                </div>
+                <div id="c5" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc5"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc5"></i>
+                </div>
+                <div id="c3" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookc3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc3"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc3"></i>
+                </div>
+                <div id="c1" class="graySquare">
+                    <div class="greenLetter">c</div>
+                    <i class="fas fa-chess-rook black" id="blackRookc1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightc1"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnc1"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenc1"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopc1"></i>
+                    <i class="fas fa-chess-king black" id="blackKingc1"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookc1"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightc1"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnc1"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenc1"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopc1"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingc1"></i>                </div>
+                <div id="d8" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd8"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd8"></i>                </div>
+                <div id="d6" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd6"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd6"></i>
+                </div>
+                <div id="d4" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd4"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd4"></i>
+                </div>
+                <div id="d2" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookd2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightd2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnd2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueend2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopd2"></i>
+                    <i class="fas fa-chess-king black" id="blackKingd2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookd2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightd2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnd2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueend2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopd2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingd2"></i>                    
+                </div>
+                <div id="e7" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope7"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge7"></i>                </div>
+                <div id="e5" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope5"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge5"></i>
+                </div>
+                <div id="e3" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRooke3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope3"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge3"></i>
+                </div>
+                <div id="e1" class="graySquare">
+                    <div class="greenLetter">e</div>
+                    <i class="fas fa-chess-rook black" id="blackRooke1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighte1"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawne1"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueene1"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishope1"></i>
+                    <i class="fas fa-chess-king black" id="blackKinge1"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRooke1"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighte1"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawne1"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueene1"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishope1"></i>
+                    <i class="fas fa-chess-king white" id="whiteKinge1"></i>                </div>
+                <div id="f8" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf8"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf8"></i>                </div>
+                <div id="f6" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf6"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf6"></i>
+                </div>
+                <div id="f4" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf4"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf4"></i>
+                </div>
+                <div id="f2" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookf2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightf2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnf2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenf2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopf2"></i>
+                    <i class="fas fa-chess-king black" id="blackKingf2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookf2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightf2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnf2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenf2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopf2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingf2"></i>                </div>
+                <div id="g7" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg7"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg7"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng7"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng7"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg7"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg7"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg7"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg7"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng7"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng7"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg7"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg7"></i>                </div>
+                <div id="g5" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg5"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg5"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng5"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng5"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg5"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg5"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg5"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg5"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng5"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng5"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg5"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg5"></i>
+                </div>
+                <div id="g3" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookg3"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg3"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng3"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng3"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg3"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg3"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg3"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg3"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng3"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng3"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg3"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg3"></i>
+                </div>
+                <div id="g1" class="graySquare">
+                    <div class="greenLetter">g</div>
+                    <i class="fas fa-chess-rook black" id="blackRookg1"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnightg1"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawng1"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueeng1"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishopg1"></i>
+                    <i class="fas fa-chess-king black" id="blackKingg1"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookg1"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnightg1"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawng1"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueeng1"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishopg1"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingg1"></i>          
+                </div>
+                <div id="h8" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh8"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth8"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh8"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh8"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph8"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh8"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh8"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth8"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh8"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh8"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph8"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh8"></i>                </div>
+                <div id="h6" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh6"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth6"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh6"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh6"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph6"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh6"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh6"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth6"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh6"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh6"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph6"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh6"></i>
+                </div>
+                <div id="h4" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh4"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth4"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh4"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh4"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph4"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh4"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh4"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth4"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh4"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh4"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph4"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh4"></i>
+                </div>
+                <div id="h2" class="graySquare">
+                    <i class="fas fa-chess-rook black" id="blackRookh2"></i>
+                    <i class="fas fa-chess-knight black" id="blackKnighth2"></i>
+                    <i class="fas fa-chess-pawn black" id="blackPawnh2"></i>
+                    <i class="fas fa-chess-queen black" id="blackQueenh2"></i>
+                    <i class="fas fa-chess-bishop black" id="blackBishoph2"></i>
+                    <i class="fas fa-chess-king black" id="blackKingh2"></i>
+                    <i class="fas fa-chess-rook white" id="whiteRookh2"></i>
+                    <i class="fas fa-chess-knight white" id="whiteKnighth2"></i>
+                    <i class="fas fa-chess-pawn white" id="whitePawnh2"></i>
+                    <i class="fas fa-chess-queen white" id="whiteQueenh2"></i>
+                    <i class="fas fa-chess-bishop white" id="whiteBishoph2"></i>
+                    <i class="fas fa-chess-king white" id="whiteKingh2"></i>                </div>
+
+            </div>
+        </div>
+        <div id="rightBoard">
+            <div id="topRight">
+                <i class="far fa-flag" id="forfeitButton"></i>
+            </div>
+            <div id="centerRight">
+                <div id="whiteMoves">
+                    <div id="move1White"></div>
+                    <div id="move2White"></div>
+                    <div id="move3White"></div>
+                    <div id="move4White"></div>
+                    <div id="move5White"></div>
+                    <div id="move6White"></div>
+                    <div id="move7White"></div>
+                    <div id="move8White"></div>
+                    <div id="move9White"></div>
+                    <div id="move10White"></div>
+                    <div id="move11White"></div>
+                    <div id="move12White"></div>
+                    <div id="move13White"></div>
+                    <div id="move14White"></div>
+                    <div id="move15White"></div>
+                    <div id="move16White"></div>
+                    <div id="move17White"></div>
+                    <div id="move18White"></div>
+                    <div id="move19White"></div>
+                    <div id="move20White"></div>
+                    <div id="move21White"></div>
+                    <div id="move22White"></div>
+                    <div id="move23White"></div>
+                    <div id="move24White"></div>
+                    <div id="move25White"></div>
+                    <div id="move26White"></div>
+                    <div id="move27White"></div>
+                    <div id="move28White"></div>
+                    <div id="move29White"></div>
+                    <div id="move30White"></div>
+                    <div id="move31White"></div>
+                    <div id="move32White"></div>
+                    <div id="move33White"></div>
+                    <div id="move34White"></div>
+                    <div id="move35White"></div>
+                    <div id="move36White"></div>
+                    <div id="move37White"></div>
+                    <div id="move38White"></div>
+                    <div id="move39White"></div>
+                    <div id="move40White"></div>
+                    <div id="move41White"></div>
+                    <div id="move42White"></div>
+                    <div id="move43White"></div>
+                    <div id="move44White"></div>
+                    <div id="move45White"></div>
+                    <div id="move46White"></div>
+                    <div id="move47White"></div>
+                    <div id="move48White"></div>
+                    <div id="move49White"></div>
+                    <div id="move50White"></div>
+                    <div id="move51White"></div>
+                    <div id="move52White"></div>
+                    <div id="move53White"></div>
+                    <div id="move54White"></div>
+                    <div id="move55White"></div>
+                    <div id="move56White"></div>
+                    <div id="move57White"></div>
+                    <div id="move58White"></div>
+                    <div id="move59White"></div>
+                    <div id="move60White"></div>
+                    <div id="move61White"></div>
+                    <div id="move62White"></div>
+                    <div id="move63White"></div>
+                    <div id="move64White"></div>
+                    <div id="move65White"></div>
+                    <div id="move66White"></div>
+                    <div id="move67White"></div>
+                    <div id="move68White"></div>
+                    <div id="move69White"></div>
+                    <div id="move70White"></div>
+                    <div id="move71White"></div>
+                    <div id="move72White"></div>
+                    <div id="move73White"></div>
+                    <div id="move74White"></div>
+                    <div id="move75White"></div>
+                    <div id="move76White"></div>
+                    <div id="move77White"></div>
+                    <div id="move78White"></div>
+                    <div id="move79White"></div>
+                    <div id="move80White"></div>
+                    <div id="move81White"></div>
+                    <div id="move82White"></div>
+                    <div id="move83White"></div>
+                    <div id="move84White"></div>
+                    <div id="move85White"></div>
+                    <div id="move86White"></div>
+                    <div id="move87White"></div>
+                    <div id="move88White"></div>
+                    <div id="move89White"></div>
+                    <div id="move90White"></div>
+                    <div id="move91White"></div>
+                    <div id="move92White"></div>
+                    <div id="move93White"></div>
+                    <div id="move94White"></div>
+                    <div id="move95White"></div>
+                    <div id="move96White"></div>
+                    <div id="move97White"></div>
+                    <div id="move98White"></div>
+                    <div id="move99White"></div>
+                    <div id="move100White"></div>
+                </div>
+                <div id="blackMoves">
+                    <div id="move1Black"></div>
+                    <div id="move2Black"></div>
+                    <div id="move3Black"></div>
+                    <div id="move4Black"></div>
+                    <div id="move5Black"></div>
+                    <div id="move6Black"></div>
+                    <div id="move7Black"></div>
+                    <div id="move8Black"></div>
+                    <div id="move9Black"></div>
+                    <div id="move10Black"></div>
+                    <div id="move11Black"></div>
+                    <div id="move12Black"></div>
+                    <div id="move13Black"></div>
+                    <div id="move14Black"></div>
+                    <div id="move15Black"></div>
+                    <div id="move16Black"></div>
+                    <div id="move17Black"></div>
+                    <div id="move18Black"></div>
+                    <div id="move19Black"></div>
+                    <div id="move20Black"></div>
+                    <div id="move21Black"></div>
+                    <div id="move22Black"></div>
+                    <div id="move23Black"></div>
+                    <div id="move24Black"></div>
+                    <div id="move25Black"></div>
+                    <div id="move26Black"></div>
+                    <div id="move27Black"></div>
+                    <div id="move28Black"></div>
+                    <div id="move29Black"></div>
+                    <div id="move30Black"></div>
+                    <div id="move31Black"></div>
+                    <div id="move32Black"></div>
+                    <div id="move33Black"></div>
+                    <div id="move34Black"></div>
+                    <div id="move35Black"></div>
+                    <div id="move36Black"></div>
+                    <div id="move37Black"></div>
+                    <div id="move38Black"></div>
+                    <div id="move39Black"></div>
+                    <div id="move40Black"></div>
+                    <div id="move41Black"></div>
+                    <div id="move42Black"></div>
+                    <div id="move43Black"></div>
+                    <div id="move44Black"></div>
+                    <div id="move45Black"></div>
+                    <div id="move46Black"></div>
+                    <div id="move47Black"></div>
+                    <div id="move48Black"></div>
+                    <div id="move49Black"></div>
+                    <div id="move50Black"></div>
+                    <div id="move51Black"></div>
+                    <div id="move52Black"></div>
+                    <div id="move53Black"></div>
+                    <div id="move54Black"></div>
+                    <div id="move55Black"></div>
+                    <div id="move56Black"></div>
+                    <div id="move57Black"></div>
+                    <div id="move58Black"></div>
+                    <div id="move59Black"></div>
+                    <div id="move60Black"></div>
+                    <div id="move61Black"></div>
+                    <div id="move62Black"></div>
+                    <div id="move63Black"></div>
+                    <div id="move64Black"></div>
+                    <div id="move65Black"></div>
+                    <div id="move66Black"></div>
+                    <div id="move67Black"></div>
+                    <div id="move68Black"></div>
+                    <div id="move69Black"></div>
+                    <div id="move70Black"></div>
+                    <div id="move71Black"></div>
+                    <div id="move72Black"></div>
+                    <div id="move73Black"></div>
+                    <div id="move74Black"></div>
+                    <div id="move75Black"></div>
+                    <div id="move76Black"></div>
+                    <div id="move77Black"></div>
+                    <div id="move78Black"></div>
+                    <div id="move79Black"></div>
+                    <div id="move80Black"></div>
+                    <div id="move81Black"></div>
+                    <div id="move82Black"></div>
+                    <div id="move83Black"></div>
+                    <div id="move84Black"></div>
+                    <div id="move85Black"></div>
+                    <div id="move86Black"></div>
+                    <div id="move87Black"></div>
+                    <div id="move88Black"></div>
+                    <div id="move89Black"></div>
+                    <div id="move90Black"></div>
+                    <div id="move91Black"></div>
+                    <div id="move92Black"></div>
+                    <div id="move93Black"></div>
+                    <div id="move94Black"></div>
+                    <div id="move95Black"></div>
+                    <div id="move96Black"></div>
+                    <div id="move97Black"></div>
+                    <div id="move98Black"></div>
+                    <div id="move99Black"></div>
+                    <div id="move100Black"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="javascript/echec2.0.js"></script>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <metacharset="utf-8">
+        <title>Jeu d'echec</title>
+        <link rel="stylesheet" href="css/echec.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css">
+    </head>
+    <body>
+        <div id="container_flex">
+            
+            <div id="container_grid">
+                <div id="a8" class="greenSquare">
+                    <i class="fas fa-chess-rook black start" id="blackRooka8"></i>
+                </div>
+                <div id="a6" class="greenSquare">
+
+                </div>
+                <div id="a4" class="greenSquare">
+
+                </div>
+                <div id="a2" class="greenSquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawna2"></i>
+                </div>
+                <div id="b7" class="greenSquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawnb7"></i>
+                </div>
+                <div id="b5" class="greenSquare">
+
+                </div>
+                <div id="b3" class="greenSquare">
+
+                </div>
+                <div id="b1" class="greenSquare">
+                    <i class="fas fa-chess-knight white start" id="whiteKnightb1"></i>
+                </div>
+                <div id="c8" class="greenSquare">
+                    <i class="fas fa-chess-bishop black start" id="blackBishopc8"></i>
+                </div>
+                <div id="c6" class="greenSquare">
+
+                </div>
+                <div id="c4" class="greenSquare">
+
+                </div>
+                <div id="c2" class="greenSquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawnc2"></i>
+                </div>
+                <div id="d7" class="greenSquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawnd7"></i>
+                </div>
+                <div id="d5" class="greenSquare">
+
+                </div>
+                <div id="d3" class="greenSquare">
+
+                </div>
+                <div id="d1" class="greenSquare">
+                    <i class="fas fa-chess-queen white start" id="whiteQueend1"></i>
+                </div>
+                <div id="e8" class="greenSquare">
+                    <i class="fas fa-chess-king black start" id="blackKinge8"></i>
+                </div>
+                <div id="e6" class="greenSquare">
+
+                </div>
+                <div id="e4" class="greenSquare">
+
+                </div>
+                <div id="e2" class="greenSquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawne2"></i>
+                </div>
+                <div id="f7" class="greenSquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawnf7"></i>
+                </div>
+                <div id="f5" class="greenSquare">
+
+                </div>
+                <div id="f3" class="greenSquare">
+
+                </div>
+                <div id="f1" class="greenSquare">
+                    <i class="fas fa-chess-bishop white start" id="whiteBishopf1"></i>
+                </div>
+                <div id="g8" class="greenSquare">
+                    <i class="fas fa-chess-knight black start" id="blackKnightg8"></i>
+                </div>
+                <div id="g6" class="greenSquare">
+
+                </div>
+                <div id="g4" class="greenSquare">
+
+                </div>
+                <div id="g2" class="greenSquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawng2"></i>
+                </div>
+                <div id="h7" class="greenSquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawnh7"></i>
+                </div>
+                <div id="h5" class="greenSquare">
+
+                </div>
+                <div id="h3" class="greenSquare">
+
+                </div>
+                <div id="h1" class="greenSquare">
+                    <i class="fas fa-chess-rook white start" id="whiteRookh1"></i>
+                </div>
+                <div id="a7" class="graySquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawna7"></i>
+                </div>
+                <div id="a5" class="graySquare">
+
+                </div>
+                <div id="a3" class="graySquare">
+
+                </div>
+                <div id="a1" class="graySquare">
+                    <i class="fas fa-chess-rook white start" id="whiteRooka1"></i>
+                </div>
+                <div id="b8" class="graySquare">
+                    <i class="fas fa-chess-knight black start" id="blackKnightb8"></i>
+                </div>
+                <div id="b6" class="graySquare">
+
+                </div>
+                <div id="b4" class="graySquare">
+
+                </div>
+                <div id="b2" class="graySquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawnb2"></i>
+                </div>
+                <div id="c7" class="graySquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawnc7"></i>
+                </div>
+                <div id="c5" class="graySquare">
+
+                </div>
+                <div id="c3" class="graySquare">
+
+                </div>
+                <div id="c1" class="graySquare">
+                    <i class="fas fa-chess-bishop white start" id="whiteBishopc1"></i>
+                </div>
+                <div id="d8" class="graySquare">
+                    <i class="fas fa-chess-queen black start" id="blackQueend8"></i>
+                </div>
+                <div id="d6" class="graySquare">
+
+                </div>
+                <div id="d4" class="graySquare">
+
+                </div>
+                <div id="d2" class="graySquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawnd2"></i>
+                    
+                </div>
+                <div id="e7" class="graySquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawne7"></i>
+                </div>
+                <div id="e5" class="graySquare">
+
+                </div>
+                <div id="e3" class="graySquare">
+
+                </div>
+                <div id="e1" class="graySquare">
+                    <i class="fas fa-chess-king white start" id="whiteKinge1"></i>
+                </div>
+                <div id="f8" class="graySquare">
+                    <i class="fas fa-chess-bishop black start" id="blackBishopf8"></i>
+                </div>
+                <div id="f6" class="graySquare">
+
+                </div>
+                <div id="f4" class="graySquare">
+
+                </div>
+                <div id="f2" class="graySquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawnf2"></i>
+                </div>
+                <div id="g7" class="graySquare">
+                    <i class="fas fa-chess-pawn black start" id="blackPawng7"></i>
+                </div>
+                <div id="g5" class="graySquare">
+
+                </div>
+                <div id="g3" class="graySquare">
+
+                </div>
+                <div id="g1" class="graySquare">
+                    <i class="fas fa-chess-knight white start" id="whiteKnightg1"></i>
+                </div>
+                <div id="h8" class="graySquare">
+                    <i class="fas fa-chess-rook black start" id="blackRookh8"></i>
+                </div>
+                <div id="h6" class="graySquare">
+
+                </div>
+                <div id="h4" class="graySquare">
+
+                </div>
+                <div id="h2" class="graySquare">
+                    <i class="fas fa-chess-pawn white start" id="whitePawnh2"></i>
+                </div>
+
+            </div>
+        </div>
+    </body>
+    <script src="javascript/echec.js"></script>
+</html>

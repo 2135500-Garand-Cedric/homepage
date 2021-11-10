@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <metacharset="utf-8">
+        <title>Mon Horloge</title>   
+        <link rel="stylesheet" href="css/horloge.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css">
+    </head>
+    <body background="images/bois.jpg">
+        <div id="container">
+            <i class="far fa-clock" id="horloge" title="Affichage sur 24 heures" onclick="Affichage24H()"></i>
+            <i class="far fa-calendar" id="calendrier" title="Masquer la date" onclick="MasquerLaDate()"></i>
+            <div id="haut">
+                <div id="semaine">mardi</div>
+                <div id="annee">annee</div>
+                <div>-</div>
+                <div id="mois">mois</div>
+                <div>-</div>
+                <div id="jour">jour</div>
+            </div>
+            <div id="bas">
+                <div id="affichageAMPM">heure</div>
+                <div id="affichage24Heure">heure</div>
+                <div>:</div>
+                <div id="minute">minutes</div>
+                <div>:</div>
+                <div id="seconde">secondes</div>
+                <div id="matin_soir">AM</div>
+            </div>
+        </div>
+    </body>
+    <script src="javascript/horloge.js"></script>
+</html>

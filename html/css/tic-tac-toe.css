@@ -1,0 +1,148 @@
+body {
+    margin: 0%;
+    background-color: aqua;
+    max-height: 100vh;
+}
+
+#container_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    width: 550px;
+    height: 550px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.gagnant {
+    position: absolute;
+    display: none;
+    font-size: 10em;
+    color: red;
+    z-index: 10;
+}
+
+.ligneHorizontale {
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    margin-left: 540px;
+    display: none;
+    z-index: 5;
+}
+
+.ligneVerticale {
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    margin-top: 50px;
+    display: none;
+    z-index: 5;
+}
+
+.ligneDiagonale {
+    position: absolute;
+    width: 470px;
+    margin-left: 533px;
+    margin-top: 41px;
+    display: none;
+    z-index: 5;
+}
+
+#ligne1 {
+    margin-top: -45px;
+}
+
+#ligne2 {
+    margin-top: 125px;
+}
+
+#ligne3 {
+    margin-top: 295px;
+}
+
+#ligne4 {
+    margin-left: 450px;
+}
+
+#ligne5 {
+    margin-left: 620px;
+}
+
+#ligne6 {
+    margin-left: 790px;
+}
+
+
+#container_grid {
+    display: grid;
+    grid-template-columns: 200px, 200px, 200px;
+    grid-template-rows: 200px, 200px, 200px;
+    grid-gap: 20px;
+
+    grid-template-areas: 
+    "case1 case2 case3"
+    "case4 case5 case6"
+    "case7 case8 case9";
+}
+
+.cases {
+    background-color: purple;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.far {
+    position: absolute;
+    font-size: 9em;
+    color: white;
+    z-index: 1;
+}
+
+.fas {
+    position: absolute;
+    font-size: 12em;
+    color: white;
+    z-index: 1;
+}
+
+#case1 {
+    grid-area: case1;
+}
+
+#case2 {
+    grid-area: case2;
+}
+
+#case3 {
+    grid-area: case3;
+}
+
+#case4 {
+    grid-area: case4;
+}
+
+#case5 {
+    grid-area: case5;
+}
+
+#case6 {
+    grid-area: case6;
+}
+
+#case7 {
+    grid-area: case7;
+}
+
+#case8 {
+    grid-area: case8;
+}
+
+#case9 {
+    grid-area: case9;
+}
+
